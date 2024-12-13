@@ -1,10 +1,8 @@
-import { Influencer } from "../mockData";
+import { InfluencerProfileProps } from "../mockData";
 import "../style/InfluencerProfile.scss";
 import { noImage } from "./SearchResults";
 
-interface InfluencerProfileProps {
-  influencer: Influencer;
-}
+
 
 const InfluencerProfile: React.FC<InfluencerProfileProps> = ({influencer,}) => {
     return (
@@ -31,9 +29,8 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({influencer,}) => {
               <a key={index} className="post-item">
                 <img src={post.imageUrl} alt={`Post ${index + 1}`} />
                 <div className="post-overlay">
-                  <span>❤️ {post.likesCount}</span>
+                  <span>🤍 {post.likesCount}</span>
                   <span>💬 {post.commentsCount}</span>
-                  {post.viewsCount && <span>👁️ {post.viewsCount}</span>}
                 </div>
               </a>
             ))}

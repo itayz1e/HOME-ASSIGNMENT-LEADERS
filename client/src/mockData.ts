@@ -10,11 +10,15 @@ export interface Influencer {
   recentPosts: {
     type: string;
     link: string;
-    likesCount: number;
+    likesCount: String;
     commentsCount: number;
     viewsCount: number;
     imageUrl: string;
   }[];
+}
+
+export interface InfluencerProfileProps {
+  influencer: Influencer;
 }
 
 export interface SearchBarProps {
@@ -39,7 +43,7 @@ export const influencers: Influencer[] = [
         {
           type: "Photo",
           link: "https://example.com/post1",
-          likesCount: 1200,
+          likesCount: '15K',
           commentsCount: 50,
           viewsCount: 2000,
           imageUrl: "https://via.placeholder.com/150",
@@ -47,7 +51,15 @@ export const influencers: Influencer[] = [
         {
           type: "Photo",
           link: "https://example.com/post1",
-          likesCount: 1200,
+          likesCount: "26K",
+          commentsCount: 50,
+          viewsCount: 2000,
+          imageUrl: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+        },
+        {
+          type: "Photo",
+          link: "https://example.com/post1",
+          likesCount: '25K',
           commentsCount: 50,
           viewsCount: 2000,
           imageUrl: "https://via.placeholder.com/150",
@@ -55,7 +67,7 @@ export const influencers: Influencer[] = [
         {
           type: "Photo",
           link: "https://example.com/post1",
-          likesCount: 1200,
+          likesCount: '25K',
           commentsCount: 50,
           viewsCount: 2000,
           imageUrl: "https://via.placeholder.com/150",
@@ -63,7 +75,7 @@ export const influencers: Influencer[] = [
         {
           type: "Photo",
           link: "https://example.com/post1",
-          likesCount: 1200,
+          likesCount: '25K',
           commentsCount: 50,
           viewsCount: 2000,
           imageUrl: "https://via.placeholder.com/150",
@@ -71,15 +83,7 @@ export const influencers: Influencer[] = [
         {
           type: "Photo",
           link: "https://example.com/post1",
-          likesCount: 1200,
-          commentsCount: 50,
-          viewsCount: 2000,
-          imageUrl: "https://via.placeholder.com/150",
-        },
-        {
-          type: "Photo",
-          link: "https://example.com/post1",
-          likesCount: 1200,
+          likesCount: '25K',
           commentsCount: 50,
           viewsCount: 2000,
           imageUrl: "https://via.placeholder.com/150",
@@ -97,7 +101,7 @@ export const influencers: Influencer[] = [
         {
           type: "Video",
           link: "https://example.com/post2",
-          likesCount: 3000,
+          likesCount: '25K',
           commentsCount: 200,
           viewsCount: 10000,
           imageUrl: "https://via.placeholder.com/150",
@@ -115,7 +119,7 @@ export const influencers: Influencer[] = [
         {
           type: "Photo",
           link: "https://example.com/post3",
-          likesCount: 500,
+          likesCount: '25K',
           commentsCount: 20,
           viewsCount: 800,
           imageUrl: "https://via.placeholder.com/150",
@@ -123,7 +127,7 @@ export const influencers: Influencer[] = [
         {
           type: "Reel",
           link: "https://example.com/post4",
-          likesCount: 2500,
+          likesCount: '25K',
           commentsCount: 150,
           viewsCount: 5000,
           imageUrl: "https://via.placeholder.com/150",
@@ -150,9 +154,9 @@ export const influencers: Influencer[] = [
         {
           type: "Photo",
           link: "https://example.com/post5",
-          likesCount: 700,
+          likesCount: '25K',
           commentsCount: 30,
-          viewsCount: 1200,
+          viewsCount: 2525,
           imageUrl: "https://via.placeholder.com/150",
         },
       ],
@@ -168,7 +172,7 @@ export const influencers: Influencer[] = [
         {
           type: "Video",
           link: "https://example.com/post6",
-          likesCount: 4000,
+          likesCount: '25K',
           commentsCount: 300,
           viewsCount: 15000,
           imageUrl: "https://via.placeholder.com/150",
@@ -186,7 +190,7 @@ export const influencers: Influencer[] = [
         {
           type: "Story",
           link: "https://example.com/post7",
-          likesCount: 200,
+          likesCount: '25K',
           commentsCount: 10,
           viewsCount: 1000,
           imageUrl: "https://via.placeholder.com/150",
