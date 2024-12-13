@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
   const [onSearch, setOnSearch] = useState<string>("");
 
   const filteredInfluencers = influencers.filter((influencer) =>
-    influencer.name.toLowerCase().includes(onSearch.toLowerCase())
+    influencer.username.toLowerCase().includes(onSearch.toLowerCase())
   );
 
   const handleSelectInfluencer = (influencer: Influencer) => {
@@ -30,14 +30,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
           placeholder="Search"
           onChange={(e) => setOnSearch(e.target.value)}
         />
-      </div>
 
       {onSearch.length > 0 && (
         <SearchResults
-          onSelect={handleSelectInfluencer}
-          results={filteredInfluencers}
+        onSelect={handleSelectInfluencer}
+        results={filteredInfluencers}
         />
       )}
+      </div>
     </>
   );
 };
