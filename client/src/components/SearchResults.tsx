@@ -1,0 +1,34 @@
+import "../style/SearchResults.scss";
+import { Influencer } from "./SearchBar";
+
+interface SearchResultsProps {
+  results: Influencer[];
+}
+const noImage =
+  "https://media.istockphoto.com/id/1142192548/vector/man-avatar-profile-male-face-silhouette-or-icon-isolated-on-white-background-vector.jpg?s=612x612&w=0&k=20&c=DUKuRxK9OINHXt3_4m-GxraeoDDlhNuCbA9hp6FotFE=";
+const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
+  return (
+    <div className="results_container">
+      {results.length > 0 ? (
+        <div className="results_list">
+          {results.map((influencer) => (
+            <div key={influencer.username} className="result_item">
+              <div className="result_image">
+                <img src={influencer.image || noImage} alt="" />
+              </div>
+              <div className="result_info">
+                <div className="result_username">@{influencer.username}</div>
+                <div className="result_name">{influencer.name}</div>
+              </div>
+              <div className="result_followers">{influencer.followers}</div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No results.</p>
+      )}
+    </div>
+  );
+};
+
+export default SearchResults;
