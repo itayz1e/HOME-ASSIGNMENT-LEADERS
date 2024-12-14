@@ -1,16 +1,36 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+import axios from "axios";
 import "../style/SearchBar.scss";
 import SearchResults from "./SearchResults";
-import { Influencer, influencers, SearchBarProps } from "../mockData";
+import { ApiResponse, Influencer, SearchBarProps } from "../interface";
+
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
   const [onSearch, setOnSearch] = useState<string>("");
+  const [results, setResults] = useState<Influencer[]>([]);
 
-  const filteredInfluencers = useMemo(() => {
-    return influencers.filter((influencer) =>
-      influencer.name.toLowerCase().includes(onSearch.toLowerCase())
-    );
-  }, [onSearch])
+
+  useEffect(() => {
+    const fetchInfluencers = async () => {
+      if (onSearch.trim() === "") {
+        setResults([]);
+        return;
+      }
+      try {
+        const response = await axios.get<ApiResponse>(
+          `http://localhost:3000/influencer/users?q=${onSearch}`
+        );
+        setResults(response.data.data);
+      } catch (error) {
+        console.error("Error fetching influencers:", error);
+      }
+    };
+
+    fetchInfluencers();
+  }, [onSearch]);
+
+
+  const filteredInfluencers = useMemo(() => results, [results]);
 
   const handleSelectInfluencer = (influencer: Influencer) => {
     onSelect(influencer);

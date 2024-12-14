@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./style/App.scss";
 import SearchBar from "./components/SearchBar";
 import InfluencerProfile from "./components/InfluencerProfile";
-import { Influencer } from "./mockData";
+import { Influencer } from "./interface";
 
 function App() {
   const [selectedInfluencer, setSelectedInfluencer] = useState<Influencer | null>(null);

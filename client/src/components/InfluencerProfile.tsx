@@ -1,4 +1,4 @@
-import { InfluencerProfileProps } from "../mockData";
+import { InfluencerProfileProps } from "../interface";
 import "../style/InfluencerProfile.scss";
 import { noImage } from "./SearchResults";
 

@@ -1,4 +1,4 @@
-import { SearchResultsProps } from "../mockData";
+import { SearchResultsProps } from "../interface";
 import "../style/SearchResults.scss";
 
 
@@ -13,11 +13,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results, onSelect }) => {
           {results.map((influencer) => (
             <div onClick={() => onSelect(influencer)} key={influencer.username} className="result_item">
               <div className="result_image">
-                <img src={influencer.profile_image || noImage} alt="" />
+                <img src={influencer.picture || noImage} alt="" />
               </div>
               <div className="result_info">
                 <div className="result_username">@{influencer.username}</div>
-                <div className="result_name">{influencer.name}</div>
+                <div className="result_name">{influencer.fullname}</div>
               </div>
               <div className="result_followers">{influencer.followers}</div>
             </div>
