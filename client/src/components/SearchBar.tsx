@@ -3,11 +3,6 @@ import "../style/SearchBar.scss";
 import SearchResults from "./SearchResults";
 import { Influencer, influencers, SearchBarProps } from "../mockData";
 
-
-
-
-
-
 const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
   const [onSearch, setOnSearch] = useState<string>("");
 
@@ -30,14 +25,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
           placeholder="Search"
           onChange={(e) => setOnSearch(e.target.value)}
         />
-
+      </div>
       {onSearch.length > 0 && (
         <SearchResults
-        onSelect={handleSelectInfluencer}
-        results={filteredInfluencers}
+          onSelect={handleSelectInfluencer}
+          results={filteredInfluencers}
         />
       )}
-      </div>
     </>
   );
 };
