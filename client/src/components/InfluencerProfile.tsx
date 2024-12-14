@@ -7,8 +7,8 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
   influencer,
 }) => {
   const [posts, setPosts] = useState<any[]>([]);
+  const [postsCount, setpostsCount] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -20,10 +20,10 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
           throw new Error("Failed to fetch posts");
         }
         const data = await response.json();
+        setpostsCount(data.length);
         setPosts(data);
         setLoading(false);
       } catch (err) {
-        setError("Error loading posts");
         setLoading(false);
       }
     };
@@ -52,17 +52,13 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
             )}
           </div>
           <div className="profile-stats">
-            <span>{influencer.postsCount} posts</span>
+            <span>{postsCount} posts</span>
             <span>{influencer.followers} followers</span>
           </div>
+          <span>{influencer.fullname}</span>
           <div className="profile-bio">CUFF IT season</div>
-          {influencer.contactInfo && (
-            <div className="profile-contact">{influencer.contactInfo}</div>
-          )}
         </div>
       </div>
-      {loading && <p>Loading posts...</p>}
-      {error && <p>{error}</p>}
       <div className="posts-grid">
         {posts.length > 0 ? (
           posts.map((post, index) => (
@@ -74,7 +70,7 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
                 alt={`Post ${index + 1}`}
                 onError={(e) => {
                   const imgElement = e.target as HTMLImageElement;
-                  imgElement.src = noPicture; // תמונת חלופה
+                  imgElement.src = noPicture;
                 }}
               />
               <div className="post-overlay">
@@ -84,8 +80,9 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
             </a>
           ))
         ) : (
-          <p>No recent posts available.</p>
+          <h3>No recent posts available.</h3>
         )}
+        {loading && <h3>Loading posts...</h3>}
       </div>
     </div>
   );

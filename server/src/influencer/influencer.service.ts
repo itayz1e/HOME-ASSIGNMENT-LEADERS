@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import * as dotenv from 'dotenv';
-import { Feed, Influencer } from './influencer.model';
+import { Influencer } from './influencer.model';
 dotenv.config();
 
 @Injectable()
@@ -33,7 +33,7 @@ export class InfluencerService {
     }
   }
 
-  async getUserFeed(url: string, limit: number): Promise<Feed> {
+  async getUserFeed(url: string, limit: number): Promise<Influencer> {
     try {
       const response = await axios.get(`${this.apiUrl}/raw/ig/user/feed/`, {
         headers: { authkey: process.env.API_KEY },

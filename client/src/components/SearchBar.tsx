@@ -4,11 +4,9 @@ import "../style/SearchBar.scss";
 import SearchResults from "./SearchResults";
 import { ApiResponse, Influencer, SearchBarProps } from "../interface";
 
-
 const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
   const [onSearch, setOnSearch] = useState<string>("");
   const [results, setResults] = useState<Influencer[]>([]);
-
 
   useEffect(() => {
     const fetchInfluencers = async () => {
@@ -17,10 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
         return;
       }
       try {
-        const response = await axios.get<ApiResponse>(
-          `http://localhost:3000/influencer/users?q=${onSearch}`
-        );
-        console.log(response.data);
+        const response = await axios.get<ApiResponse>(`http://localhost:3000/influencer/users?q=${onSearch}`);
         setResults(response.data.data);
       } catch (error) {
         console.error("Error fetching influencers:", error);
@@ -30,9 +25,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
     fetchInfluencers();
   }, [onSearch]);
 
-
   const filteredInfluencers = useMemo(() => results, [results]);
-
   const handleSelectInfluencer = (influencer: Influencer) => {
     onSelect(influencer);
     setOnSearch("");
