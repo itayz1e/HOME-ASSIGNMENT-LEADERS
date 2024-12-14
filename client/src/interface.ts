@@ -1,9 +1,10 @@
 export interface Influencer {
+  user_id: any;
   fullname: string;
   username: string;
   followers: string;
   picture: string;
-  isVerified: boolean;
+  is_verified: boolean;
   contactInfo?: string;
   postsCount?:number;
   recentPosts: {

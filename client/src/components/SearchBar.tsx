@@ -20,6 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
         const response = await axios.get<ApiResponse>(
           `http://localhost:3000/influencer/users?q=${onSearch}`
         );
+        console.log(response.data);
         setResults(response.data.data);
       } catch (error) {
         console.error("Error fetching influencers:", error);

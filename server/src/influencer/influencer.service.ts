@@ -39,7 +39,7 @@ export class InfluencerService {
         headers: { authkey: process.env.API_KEY },
         params: { url: url, limit: limit },
       });
-      return response.data;
+      return response.data.items;
     } catch (error) {
       console.error('Error fetching user feed:', error.message);
       throw new Error('Failed to fetch user feed');
