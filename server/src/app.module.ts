@@ -9,7 +9,7 @@ import { join } from 'path';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'), // נתיב תיקיית הסטטיים
+      rootPath: join(__dirname, '..', 'public'),
     }),
   ],
   controllers: [AppController, InfluencerController],
