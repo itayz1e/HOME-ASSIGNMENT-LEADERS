@@ -24,13 +24,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
           onChange={(e) => setOnSearch(e.target.value)}
         />
       </div>
+      <div>
       {onSearch.length > 0 && (
         <SearchResults
-          onSelect={handleSelectInfluencer}
-          results={results}
+        onSelect={handleSelectInfluencer}
+        results={results}
         />
+        
       )}
-      {loading && <p>Loading...</p>}
+      {loading && <p className="loading">Loading...</p>}
+      </div>
     </>
   );
 };
