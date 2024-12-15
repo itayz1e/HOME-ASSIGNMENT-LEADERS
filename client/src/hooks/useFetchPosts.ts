@@ -9,7 +9,7 @@ const useFetchPosts = (userId: string) => {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.REACT_APP_API_URL}/influencer/user-feed?url=${userId}`
+          `http://localhost:3000/influencer/user-feed?url=${userId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch posts");

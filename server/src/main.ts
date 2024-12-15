@@ -10,7 +10,6 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type, Authorization',
   });
 
-  const port = process.env.REACT_APP_API_URL || 3000;
-  await app.listen(port);
+  await app.listen(3000);
 }
 bootstrap();
