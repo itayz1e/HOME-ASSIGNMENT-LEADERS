@@ -1,5 +1,5 @@
 export interface Influencer {
-  user_id: any;
+  user_id: string;
   fullname: string;
   username: string;
   followers: string;
@@ -18,4 +18,9 @@ export interface SearchBarProps {
 export interface ApiResponse {
   success: boolean;
   data: Influencer[];
+}
+
+export interface SearchResultsProps {
+  results: Influencer[];
+  onSelect: (influencer: Influencer) => void;
 }
