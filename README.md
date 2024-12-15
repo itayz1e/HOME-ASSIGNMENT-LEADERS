@@ -47,6 +47,8 @@ Before running the project, make sure you have the following installed:
 
 - API_URL=***
 
+- REACT_APP_API_URL= ***
+
 
 3. Install dependencies server:
 
