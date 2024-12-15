@@ -1,5 +1,5 @@
 .profile-page {
-  margin: 0 auto;
+  margin: 25px auto;
   font-family: Arial, sans-serif;
   color: #333;
   display: flex;
@@ -18,7 +18,7 @@
       width: 250px;
       height: 250px;
       border-radius: 50%;
-      margin: 0px 0px 0px 300px;
+      margin: 0px 0px 0px 500px;
     }
 
     .profile-info {
@@ -74,17 +74,18 @@
   }
 
   .posts-grid {
-    max-width: 1500px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    padding: 20px;
-    width: 100%;
-
+    padding: 60px;
+    
     .post-item {
       position: relative;
       cursor: pointer;
+      height: 409px;
+      width: 309px;
 
+      
       img {
         width: 100%;
         height: 100%;
