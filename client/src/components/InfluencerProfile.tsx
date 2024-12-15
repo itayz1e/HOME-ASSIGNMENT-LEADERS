@@ -1,35 +1,12 @@
-import { useEffect, useState } from "react";
+import { noPicture } from "./SearchResults";
 import { InfluencerProfileProps } from "../interface";
 import "../style/InfluencerProfile.scss";
-import { noPicture } from "./SearchResults";
+import useFetchPosts from "../hooks/useFetchPosts";
 
 const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
   influencer,
 }) => {
-  const [posts, setPosts] = useState<any[]>([]);
-  const [postsCount, setpostsCount] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3000/influencer/user-feed?url=${influencer.user_id}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch posts");
-        }
-        const data = await response.json();
-        setpostsCount(data.length);
-        setPosts(data);
-        setLoading(false);
-      } catch (err) {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, [influencer.user_id]);
+  const { posts, postsCount, loading } = useFetchPosts(influencer.user_id);
 
   return (
     <div className="profile-page">
