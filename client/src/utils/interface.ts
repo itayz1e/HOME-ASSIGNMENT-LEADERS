@@ -2,7 +2,7 @@ export interface Influencer {
   user_id: string;
   fullname: string;
   username: string;
-  followers: string;
+  followers: any;
   picture: string;
   is_verified: boolean;
 }

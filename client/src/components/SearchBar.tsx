@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../style/SearchBar.scss";
 import SearchResults from "./SearchResults";
-import { Influencer, SearchBarProps } from "../interface";
+import { Influencer, SearchBarProps } from "../utils/interface";
 import useSearchInfluencers from "../hooks/useSearchInfluencers";
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
@@ -27,7 +27,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
       </div>
       <div>
       </div>
-      {/* {loading && <p className="loading">Loading...</p>} */}
     </div>
       {onSearch.length > 0 && (
         <SearchResults

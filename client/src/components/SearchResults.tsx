@@ -1,5 +1,6 @@
-import { SearchResultsProps } from "../interface";
+import { SearchResultsProps } from "../utils/interface";
 import "../style/SearchResults.scss";
+import { formatNumber } from "../utils/helpers";
 
 
 
@@ -19,7 +20,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results, onSelect }) => {
                 <div className="result_username">@{influencer.username}</div>
                 <div className="result_name">{influencer.fullname}</div>
               </div>
-              <div className="result_followers">{influencer.followers}</div>
+              <div className="result_followers">{formatNumber(influencer.followers)}</div>
             </div>
           ))}
         </div>
