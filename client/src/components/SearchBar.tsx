@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../style/SearchBar.scss";
 import SearchResults from "./SearchResults";
-import { Influencer, SearchBarProps } from "../interface";
+import { Influencer, SearchBarProps } from "../utils/interface";
 import useSearchInfluencers from "../hooks/useSearchInfluencers";
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
@@ -15,26 +15,32 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
 
   return (
     <>
-      <div className="search_container">
+    <div  className="search_container">
+      <div>
         <input
           value={onSearch}
           type="text"
           className="search_input"
           placeholder="Search"
           onChange={(e) => setOnSearch(e.target.value)}
-        />
+          />
       </div>
       <div>
+      </div>
+    </div>
       {onSearch.length > 0 && (
         <SearchResults
         onSelect={handleSelectInfluencer}
-        results={results}
-        />
-        
+        results={loading ? [{ 
+          username: "Loading...", 
+          fullname: "Loading...", 
+          followers: "", 
+          picture: "", 
+          user_id: "", 
+          is_verified: false 
+        }] : results}  />
       )}
-      {loading && <p className="loading">Loading...</p>}
-      </div>
-    </>
+      </>
   );
 };
 

@@ -1,7 +1,11 @@
-import { noPicture } from "./SearchResults";
-import { InfluencerProfileProps } from "../interface";
+import { InfluencerProfileProps } from "../utils/interface";
 import "../style/InfluencerProfile.scss";
 import useFetchPosts from "../hooks/useFetchPosts";
+import HeartIcon from "../../public/HeartIcon";
+import MessageIcon from "../../public/MessageIcon";
+import { formatNumber, noPicture } from "../utils/helpers";
+
+
 
 const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
   influencer,
@@ -30,36 +34,40 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
           </div>
           <div className="profile-stats">
             <span>{postsCount} posts</span>
-            <span>{influencer.followers} followers</span>
+            <span>{formatNumber(influencer.followers)} followers</span>
           </div>
           <span>{influencer.fullname}</span>
-          <div className="profile-bio">CUFF IT season</div>
         </div>
       </div>
       <div className="posts-grid">
         {posts.length > 0 ? (
           posts.map((post, index) => (
-            <a key={post.pk} className="post-item">
+            <a key={index} className="post-item">
               <img
                 src={`http://localhost:3000/influencer/proxy-image?url=${encodeURIComponent(
                   post.display_url
                 )}`}
-                alt={`Post ${index + 1}`}
+                alt=""
                 onError={(e) => {
                   const imgElement = e.target as HTMLImageElement;
                   imgElement.src = noPicture;
                 }}
               />
               <div className="post-overlay">
-                <span>🤍{post.like_count}</span>
-                <span>💬{post.comment_count}</span>
+                <span className="icon">
+                  <HeartIcon />
+                  {formatNumber(post.like_count)}
+                </span>
+                <span className="icon">
+                  <MessageIcon />
+                  {formatNumber(post.comment_count)}
+                </span>
               </div>
             </a>
           ))
         ) : (
-          <h3>No recent posts available.</h3>
+          <div>{loading && <h3>Loading posts...</h3>}</div>
         )}
-        {loading && <h3>Loading posts...</h3>}
       </div>
     </div>
   );

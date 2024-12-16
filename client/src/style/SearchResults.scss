@@ -1,12 +1,11 @@
 .results_container {
   position: absolute;
-  top: 5.6rem;
-  left: 60rem;
+  top: 6.3rem;
+  left: 50%;
   transform: translateX(-50%);
   width: 481px;
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-height: 350px;
   overflow-y: auto;
@@ -35,29 +34,39 @@
 }
 
 .result_image img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .result_info {
   display: flex;
+  gap: 7px;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .result_name {
-  font-size: 14px;
-  color: gray;
+  color: rgba(0, 0, 0, 0.377);
+  font-size: 17px;
+  letter-spacing: 0cap;
+  font-family: sans-serif;
 }
 
+
 .result_username {
-  font-weight: bold;
+  font-family: sans-serif;
+  color: rgba(0, 0, 0, 0.89);
+  font-size: 17px;
+  margin-bottom: 4px;
 }
+
 
 .result_followers {
   margin-left: auto;
-  font-size: 14px;
-  color: gray;
+  color: rgba(0, 0, 0, 0.377);
+  font-family: sans-serif;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
