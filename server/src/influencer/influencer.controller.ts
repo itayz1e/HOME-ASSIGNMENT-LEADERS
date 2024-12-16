@@ -20,19 +20,12 @@ export class InfluencerController {
   @Get('proxy-image')
   async proxyImage(@Query('url') url: string, @Res() res: Response) {
     try {
-      const response = await axios.get(url, {
-        responseType: 'arraybuffer',
-        headers: {
-          Referer: 'https://www.instagram.com',
-          'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        },
-      });
-
-      res.set('Content-Type', response.headers['content-type']);
-      res.set('Access-Control-Allow-Origin', '*'); // אפשר גישה מכל מקור
-      res.set('Cross-Origin-Resource-Policy', 'cross-origin'); // הוסף את זה
-      res.send(response.data);
+      const imageData = await this.influencerService.proxyImage(url);
+      
+      res.set('Content-Type', 'image/jpeg');
+      res.set('Access-Control-Allow-Origin', '*');
+      res.set('Cross-Origin-Resource-Policy', 'cross-origin');
+      res.send(imageData);
     } catch (error) {
       res.status(500).send('Error fetching image');
     }

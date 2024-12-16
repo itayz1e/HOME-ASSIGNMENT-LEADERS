@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ApiResponse, Influencer } from "../interface";
+import { ApiResponse, Influencer } from "../utils/interface";
 
 const useSearchInfluencers = (query: string) => {
   const [results, setResults] = useState<Influencer[]>([]);

@@ -45,4 +45,22 @@ export class InfluencerService {
       throw new Error('Failed to fetch user feed');
     }
   }
+
+  async proxyImage(url: string): Promise<Buffer> {
+    try {
+      const response = await axios.get(url, {
+        responseType: 'arraybuffer',
+        headers: {
+          Referer: 'https://www.instagram.com',
+          'User-Agent':
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        },
+      });
+
+      return response.data;
+    } catch (error) {
+      throw new Error('Error fetching image');
+    }
+  }
+
 }
