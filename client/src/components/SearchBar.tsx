@@ -15,26 +15,33 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
 
   return (
     <>
-      <div className="search_container">
+    <div  className="search_container">
+      <div>
         <input
           value={onSearch}
           type="text"
           className="search_input"
           placeholder="Search"
           onChange={(e) => setOnSearch(e.target.value)}
-        />
+          />
       </div>
       <div>
+      </div>
+      {/* {loading && <p className="loading">Loading...</p>} */}
+    </div>
       {onSearch.length > 0 && (
         <SearchResults
         onSelect={handleSelectInfluencer}
-        results={results}
-        />
-        
+        results={loading ? [{ 
+          username: "Loading...", 
+          fullname: "Loading...", 
+          followers: "", 
+          picture: "", 
+          user_id: "", 
+          is_verified: false 
+        }] : results}  />
       )}
-      {loading && <p className="loading">Loading...</p>}
-      </div>
-    </>
+      </>
   );
 };
 

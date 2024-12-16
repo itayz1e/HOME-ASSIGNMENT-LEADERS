@@ -57,9 +57,8 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
             </a>
           ))
         ) : (
-          <h3>No recent posts available.</h3>
+          <div>{loading && <h3>Loading posts...</h3>}</div>
         )}
-        {loading && <h3>Loading posts...</h3>}
       </div>
     </div>
   );

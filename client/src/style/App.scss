@@ -5,8 +5,15 @@ html {
   overflow-x: hidden;
 }
 
+
 .fullPage {
-  width: 1920px;
-  gap: 100px;
-  opacity: 0px;
+  width: 100%;
+  max-width: 1920px;
+  gap: 5%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  padding: 10px;
+  box-sizing: border-box;
 }
