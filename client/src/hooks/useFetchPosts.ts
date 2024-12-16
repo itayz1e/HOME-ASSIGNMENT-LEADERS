@@ -15,7 +15,6 @@ const useFetchPosts = (userId: string) => {
           throw new Error("Failed to fetch posts");
         }
         const data = await response.json();
-        console.log(data);
         setPostsCount(data.length);
         setPosts(data);
         setLoading(false);

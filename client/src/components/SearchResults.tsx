@@ -1,10 +1,7 @@
 import { SearchResultsProps } from "../utils/interface";
 import "../style/SearchResults.scss";
-import { formatNumber } from "../utils/helpers";
+import { formatNumber, noPicture } from "../utils/helpers";
 
-
-
-export const noPicture ="https://media.istockphoto.com/id/1142192548/vector/man-avatar-profile-male-face-silhouette-or-icon-isolated-on-white-background-vector.jpg?s=612x612&w=0&k=20&c=DUKuRxK9OINHXt3_4m-GxraeoDDlhNuCbA9hp6FotFE=";
 
 const SearchResults: React.FC<SearchResultsProps> = ({ results, onSelect }) => {
   return (

@@ -1,10 +1,9 @@
-import { noPicture } from "./SearchResults";
 import { InfluencerProfileProps } from "../utils/interface";
 import "../style/InfluencerProfile.scss";
 import useFetchPosts from "../hooks/useFetchPosts";
 import HeartIcon from "../../public/HeartIcon";
 import MessageIcon from "../../public/MessageIcon";
-import { formatNumber } from "../utils/helpers";
+import { formatNumber, noPicture } from "../utils/helpers";
 
 
 
@@ -43,7 +42,7 @@ const InfluencerProfile: React.FC<InfluencerProfileProps> = ({
       <div className="posts-grid">
         {posts.length > 0 ? (
           posts.map((post, index) => (
-            <a key={index=post.pk} className="post-item">
+            <a key={index} className="post-item">
               <img
                 src={`http://localhost:3000/influencer/proxy-image?url=${encodeURIComponent(
                   post.display_url
